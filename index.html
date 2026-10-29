@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>LifeHub | Plan Today, Build Tomorrow</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a class="logo" href="#home">
+          <span class="logo-icon">✿</span>
+          <span>Life<span class="logo-accent">Hub</span></span>
+        </a>
+        <p class="sidebar-label">MAIN MENU</p>
+        <nav class="sidebar-nav">
+          <a class="nav-link active" href="#home">⌂ <span>Home</span></a>
+          <a class="nav-link" href="#tasks">✓ <span>My Tasks</span></a>
+          <a class="nav-link" href="#quick-notes">▤ <span>Quick Notes</span></a>
+          <a class="nav-link" href="#focus">◷ <span>Focus Timer</span></a>
+        </nav>
+        <div class="sidebar-quote">
+          <span class="quote-mark">“</span> Small steps every day lead to big
+          results. <span class="quote-mark">”</span>
+        </div>
+        <div class="sidebar-footer">
+          <p>LifeHub</p>
+          <span>Make every day count.</span>
+        </div>
+      </aside>
+      <!-- Main Dashboard -->
+      <main class="dashboard">
+        <!-- Header -->
+        <header class="navbar">
+          <div class="welcome-text">
+            <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+            <h1>Welcome back, Boss! <span>✦</span></h1>
+            <p>Plan your tasks, capture ideas and focus on your goals.</p>
+          </div>
+          <button
+            id="themeBtn"
+            class="theme-btn"
+            type="button"
+            aria-label="Toggle light and dark theme"
+          >
+            ☼
+          </button>
+        </header>
+        <!-- Hero -->
+        <section class="hero" id="home">
+          <div class="hero-content">
+            <span class="hero-badge">✦ YOUR DAY, YOUR PROGRESS</span>
+            <h2>Better Habits<br />Build a <span>Greater You.</span></h2>
+            <p>
+              Organize your day, save your thoughts and make time for what truly
+              matters.
+            </p>
+            <a class="primary-btn" id="welcomeBtn" href="#tasks">
+              <span>Get Started</span> <span>→</span>
+            </a>
+          </div>
+          <div class="hero-decoration" aria-hidden="true">
+            <span>Dream.</span> <span>Plan.</span> <span>Do.</span>
+            <span class="decoration-heart">♥</span>
+          </div>
+        </section>
+        <!-- Three Feature Cards -->
+        <section class="features" aria-label="LifeHub features">
+          <a class="feature-card task-feature" href="#tasks">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Task Management</h3>
+              <p>Organize your day and track your progress.</p>
+              <span class="feature-link">Manage Tasks →</span>
+            </div>
+          </a>
+          <a class="feature-card notes-feature" href="#quick-notes">
+            <div class="feature-icon">▤</div>
+            <div class="feature-content">
+              <h3>Quick Notes</h3>
+              <p>Capture your thoughts and important ideas.</p>
+              <span class="feature-link">Write Notes →</span>
+            </div>
+          </a>
+          <a class="feature-card focus-feature" href="#focus">
+            <div class="feature-icon">◷</div>
+            <div class="feature-content">
+              <h3>Focus Timer</h3>
+              <p>Stay focused and make every minute count.</p>
+              <span class="feature-link">Start Focusing →</span>
+            </div>
+          </a>
+        </section>
+        <!-- Main Feature Grid -->
+        <div class="content-grid">
+          <!-- Task Manager -->
+          <section class="panel task-section" id="tasks">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">STAY ORGANIZED</span>
+                <h2><span class="heading-icon">✓</span> My Tasks</h2>
+                <p>Add, manage and complete your daily tasks.</p>
+              </div>
+              <span class="task-count-badge" id="taskCount">0 tasks</span>
+            </div>
+            <form id="taskForm" class="task-form">
+              <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter a new task..."
+                autocomplete="off"
+                aria-label="New task"
+                required
+              />
+              <button type="submit" id="addTaskBtn" class="primary-btn">
+                <span>＋</span> Add Task
+              </button>
+            </form>
+            <div class="task-filters" aria-label="Filter tasks">
+              <button type="button" class="filter-btn active" data-filter="all">
+                All
+              </button>
+              <button type="button" class="filter-btn" data-filter="pending">
+                Pending
+              </button>
+              <button type="button" class="filter-btn" data-filter="completed">
+                Completed
+              </button>
+            </div>
+            <div class="task-list-container">
+              <ul id="taskList" class="task-list"></ul>
+              <p id="emptyMessage" class="empty-message">
+                No tasks yet. Add your first task!
+              </p>
+            </div>
+            <div class="progress-section">
+              <div class="progress-heading">
+                <h3>Daily Progress</h3>
+                <span id="progressText">0% completed</span>
+              </div>
+              <div
+                class="progress-bar"
+                role="progressbar"
+                aria-label="Task completion progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+              >
+                <div id="progressFill" class="progress-fill"></div>
+              </div>
+              <p id="progressDetails">0 of 0 tasks completed</p>
+            </div>
+          </section>
+          <!-- Quick Notes -->
+          <section class="panel notes-section" id="quick-notes">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">SAVE YOUR IDEAS</span>
+                <h2><span class="heading-icon">▤</span> Quick Notes</h2>
+                <p>Keep your important thoughts in one place.</p>
+              </div>
+            </div>
+            <form id="noteForm" class="note-form">
+              <label for="noteTitle">Note title</label>
+              <input
+                type="text"
+                id="noteTitle"
+                placeholder="Give your note a title..."
+                maxlength="100"
+                required
+              />
+              <label for="noteContent">Your note</label>
+              <textarea
+                id="noteContent"
+                placeholder="What's on your mind?"
+                rows="4"
+                required
+              ></textarea>
+              <button type="submit" id="saveNoteBtn" class="primary-btn">
+                <span>▣</span> Save Note
+              </button>
+              <p id="notesStatus" class="notes-status" aria-live="polite"></p>
+            </form>
+            <div class="saved-notes-heading">
+              <h3>Saved Notes</h3>
+              <span id="notesCount">0 notes</span>
+            </div>
+            <div id="notesList" class="notes-list">
+              <p class="empty-notes">Your saved notes will appear here.</p>
+            </div>
+          </section>
+          <!-- Focus Timer -->
+          <section class="panel timer-section" id="focus">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">TIME TO CONCENTRATE</span>
+                <h2><span class="heading-icon">◷</span> Focus Timer</h2>
+                <p>One task at a time. One step at a time.</p>
+              </div>
+            </div>
+            <div class="timer-card">
+              <div class="timer-ring">
+                <div class="timer-ring-inner">
+                  <span id="timerDisplay">25:00</span>
+                  <span id="timerModeLabel" class="timer-caption"
+                    >FOCUS SESSION</span
+                  >
+                </div>
+              </div>
+              <p id="timerStatus" class="timer-status" aria-live="polite">
+                Ready when you are.
+              </p>
+              <div class="timer-presets">
+                <button
+                  type="button"
+                  id="focusTimerBtn"
+                  class="preset-btn active"
+                  data-minutes="25"
+                >
+                  Focus 25
+                </button>
+                <button
+                  type="button"
+                  id="shortBreak"
+                  class="preset-btn"
+                  data-minutes="5"
+                >
+                  Short 5
+                </button>
+                <button
+                  type="button"
+                  id="longBreak"
+                  class="preset-btn"
+                  data-minutes="15"
+                >
+                  Long 15
+                </button>
+              </div>
+              <div class="timer-controls">
+                <button
+                  type="button"
+                  id="startTimer"
+                  class="timer-control start-control"
+                >
+                  ▶ Start
+                </button>
+                <button
+                  type="button"
+                  id="pauseTimer"
+                  class="timer-control pause-control"
+                >
+                  Ⅱ Pause
+                </button>
+                <button
+                  type="button"
+                  id="resetTimer"
+                  class="timer-control reset-control"
+                >
+                  ↻ Reset
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+          <p>◾ LifeHub — Plan Today, Build Tomorrow</p>
+          <p> 🌱 Developed by Mridaakash- </p>
+        </footer>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
