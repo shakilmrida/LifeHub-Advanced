@@ -824,4 +824,20 @@ document
     });
   });
 
+/* ==========================================
+   17. SIDEBAR MENU TOGGLE
+========================================== */
+
+const sidebar = document.getElementById("sidebar");
+const menuToggle = document.getElementById("menuToggle");
+
+if (sidebar && menuToggle) {
+  menuToggle.addEventListener("click", function () {
+    const isOpen = sidebar.classList.toggle("is-open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+  });
+}
+
 console.log("LifeHub is ready! ✨");

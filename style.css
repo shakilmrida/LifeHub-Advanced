@@ -107,7 +107,30 @@ select {
   width: 100%;
   min-height: 100vh;
 }
+#menuToggle {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  left: auto;
 
+  width: 46px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+
+  z-index: 1100;
+}
 /* Sidebar */
 
 .sidebar {
@@ -116,15 +139,29 @@ select {
   height: 100vh;
   padding: 28px 18px;
 
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
 
   background: rgba(7, 19, 41, 0.15);
   border-right: 1px solid var(--border-color);
 
   backdrop-filter: blur(18px);
   overflow-y: auto;
-  z-index: 10;
+  z-index: 1001;
+
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* Sidebar Open State */
+
+.sidebar.is-open {
+  transform: translateX(0);
+  visibility: visible;
 }
 
 /* Sidebar Logo */
@@ -1472,18 +1509,50 @@ body.light-mode .footer {
   .app-layout {
     flex-direction: column;
   }
+  #menuToggle {
+    top: 10px;
+    right: 10px;
+    left: auto;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+  /* Theme Button Inside Sidebar */
+  .sidebar #themeBtn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 16px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    background: rgba(37, 99, 235, 0.15);
+    color: inherit;
+
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+  }
+
+  .sidebar #themeBtn:hover {
+    background: rgba(37, 99, 235, 0.3);
+  }
 
   .sidebar {
-    position: relative;
-    top: auto;
-
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    max-width: 85vw;
     min-width: 0;
-    height: auto;
+    height: 100vh;
 
     padding: 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: none;
   }
 
   .logo,
@@ -1493,8 +1562,9 @@ body.light-mode .footer {
 
   .sidebar nav,
   .sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     gap: 8px;
   }
 

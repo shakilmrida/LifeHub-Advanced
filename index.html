@@ -10,7 +10,7 @@
   <body>
     <div class="app-layout">
       <!-- Sidebar -->
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <a class="logo" href="#home">
           <span class="logo-icon">✿</span>
           <span>Life<span class="logo-accent">Hub</span></span>
@@ -30,17 +30,7 @@
           <p>LifeHub</p>
           <span>Make every day count.</span>
         </div>
-      </aside>
-      <!-- Main Dashboard -->
-      <main class="dashboard">
-        <!-- Header -->
-        <header class="navbar">
-          <div class="welcome-text">
-            <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
-            <h1>Welcome back, Boss! <span>✦</span></h1>
-            <p>Plan your tasks, capture ideas and focus on your goals.</p>
-          </div>
-          <button
+                  <button
             id="themeBtn"
             class="theme-btn"
             type="button"
@@ -48,6 +38,28 @@
           >
             ☼
           </button>
+      </aside>
+      <!-- Main Dashboard -->
+      <main class="dashboard">
+        <!-- Header -->
+        <!-- Sidebar Menu Toggle -->
+        <button
+          type="button"
+          id="menuToggle"
+          class="menu-toggle"
+          aria-label="Open menu"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <header class="navbar">
+          <div class="welcome-text">
+            <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+            <h1>Welcome back Boss! <span>✦</span></h1>
+            <p>Plan your tasks, capture ideas and focus on your goals.</p>
+          </div>
+
         </header>
         <!-- Hero -->
         <section class="hero" id="home">
@@ -268,7 +280,7 @@
         <!-- Footer -->
         <footer class="footer">
           <p>◾ LifeHub — Plan Today, Build Tomorrow</p>
-          <p> 🌱 Developed by Mridaakash- </p>
+          <p>🌱 Developed by Mridaakash-</p>
         </footer>
       </main>
     </div>
